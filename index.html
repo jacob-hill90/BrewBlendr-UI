@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer&display=swap" rel="stylesheet">
+    <title>BrewBlendr</title>
+</head>
+<body>
+    <div class="content-container">
+        <div class="nav">
+            <h1 id="LogoText">BrewBlender</h1>
+            <div class="menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="weight-text">WEIGHT</div>
+            <div class="desired-weight-container">
+                <div class="desired-weight-text">
+                    Enter Desired Weight of Ground Coffee
+                </div>
+                <input id="desired-input" maxlength="3"></input>
+                <button class="grind-button">GRIND</button>
+            </div>
+            <div class="weight-text">MANUAL</div>
+            <div class="manual-container">
+                <button class="grind-button">START</button>
+                <button class="grind-button">STOP</button>
+            </div>
+            <div class="weight-text">GCC CURRENT WEIGHT</div>
+            <div class="GCC-current-container">
+                <div class="current-weight">0.0 g</div>
+                <button class="grind-button">TARE</button>
+            </div>
+            <div></div>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
