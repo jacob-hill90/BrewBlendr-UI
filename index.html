@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+        var running=false;
+        async function getWeight() {
+                if (running==false){
+                    running=true;
+                
+                    const post = await fetch("http://192.168.1.189/weight").then((res) => res.json());
+                    console.log(`${post.weight} g`);
+                    document.getElementById("current_weight").innerHTML = `${post.weight} g`;
+                    running=false
+                }
+
+        }
+        function tare(){
+            fetch("http://192.168.1.189/tare");
+        }
+        function calibrate(){
+            fetch("http://192.168.1.189/calibrate");
+        }
+        function grind(){
+            weight=document.getElementById("desired-input").value;
+            fetch(`http://192.168.1.189/grind?WEIGHT=${weight}`);
+        }
+        const updateWeightPeriodic = setInterval(getWeight, 200);
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +53,7 @@
                     Enter Desired Weight of Ground Coffee
                 </div>
                 <input id="desired-input" maxlength="3"></input>
-                <button class="grind-button">GRIND</button>
+                <button class="grind-button" onclick="grind()">GRIND</button>
             </div>
             <div class="weight-text">MANUAL</div>
             <div class="manual-container">
@@ -37,8 +62,10 @@
             </div>
             <div class="weight-text">GCC CURRENT WEIGHT</div>
             <div class="GCC-current-container">
-                <div class="current-weight">0.0 g</div>
-                <button class="grind-button">TARE</button>
+                <div class="current-weight" id="current_weight">0.0 g</div>
+                <button class="grind-button" onclick="tare()">TARE</button>
+                <button class="grind-button" onclick="calibrate()">calibrate</button>
+
             </div>
             <div></div>
         </div>
